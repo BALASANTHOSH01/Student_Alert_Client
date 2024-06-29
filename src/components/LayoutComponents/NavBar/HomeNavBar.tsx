@@ -8,13 +8,13 @@ const HomeNavBar = () => {
         <div>
             <div className='text-xl flex items-center'>
                 <div className=' flex flex-row items-center justify-start gap-1 flex-[1.5] ml-[5%]'>
-                    <motion.p whileTap={{scale:0.6}} className=' py-[21px] px-[17px] w-[30%] text-center hover:bg-[--primary-purpel] hover:text-white cursor-pointer'>Products</motion.p>
-                    <motion.p whileTap={{scale:0.6}} className=' py-[21px] px-[17px] w-[30%] text-center hover:bg-[--primary-purpel] hover:text-white cursor-pointer'>About</motion.p>
-                    <motion.p whileTap={{scale:0.6}} className=' py-[21px] px-[17px] w-[30%] text-center hover:bg-[--primary-purpel] hover:text-white cursor-pointer'>Blog</motion.p>
+                    <motion.p whileTap={{scale:0.6}} className=' py-[21px] px-[17px] w-[30%] text-center hover:bg-[--primary-purpel] hover:text-white cursor-pointer hover:duration-300'>Products</motion.p>
+                    <motion.p whileTap={{scale:0.6}} className=' py-[21px] px-[17px] w-[30%] text-center hover:bg-[--primary-purpel] hover:text-white cursor-pointer hover:duration-300'>About</motion.p>
+                    <motion.p whileTap={{scale:0.6}} className=' py-[21px] px-[17px] w-[30%] text-center hover:bg-[--primary-purpel] hover:text-white cursor-pointer hover:duration-300'>Blog</motion.p>
                 </div>
                 <div className=' flex flex-row items-center flex-1 justify-end'>
                    
-                    <Link to={"/auth/login"} className=' py-[21px] px-[17px]  text-center hover:bg-[--primary-purpel] hover:text-white w-[35%] cursor-pointer '>
+                    <Link to={"/auth/login"} className=' py-[21px] px-[17px]  text-center hover:bg-[--primary-purpel] hover:text-white w-[35%] cursor-pointer hover:duration-300'>
                     <motion.p whileTap={{scale:0.6}} >
                     Login
                     </motion.p>
