@@ -37,7 +37,12 @@ const RegisterForm:React.FC = () => {
   const [userType, setUserType] = useState<string>("");
   const handleUserType = (type: string) => {
     setUserType(type);
-  }
+  };
+
+  const [formNumber,setFormNumber]=useState<string>("one");
+  const handleForm = (form:string) =>{
+    setFormNumber(form);
+  };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -48,11 +53,15 @@ const RegisterForm:React.FC = () => {
   }
 
   return (
-    <div>
+    <div className=' font-nunito'>
       {
         userType === "" ? <SelectUser handleUserType={handleUserType} /> : <div>
-          <CommonFields handleChange={handleChange} formData={formData} />
+          <p className=' text-[35px] text-center font-bold my-[2%]'>Register Your Account</p>
+          {
+            formNumber === "one" ?
+            <CommonFields handleChange={handleChange} formData={formData} handleForm={handleForm}/> : 
           <DynamicFields handleChange={handleChange} formData={formData} userType={userType} />
+          }
         </div>
       }
     </div>
