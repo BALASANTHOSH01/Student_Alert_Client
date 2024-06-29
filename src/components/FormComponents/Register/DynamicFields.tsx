@@ -85,4 +85,4 @@ const DynamicFields:React.FC<DynamicFieldsProps> = ({userType,handleChange,formD
   )
 }
 
-export default DynamicFields
+export default DynamicFields;

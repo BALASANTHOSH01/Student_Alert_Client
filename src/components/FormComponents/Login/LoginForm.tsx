@@ -6,7 +6,7 @@ interface loginDataTypes {
     password:string;
 }
 
-const LoginForm = () => {
+const LoginForm:React.FC = () => {
 
     const [loginData,setLoginData]=useState<loginDataTypes>({
         email:"",

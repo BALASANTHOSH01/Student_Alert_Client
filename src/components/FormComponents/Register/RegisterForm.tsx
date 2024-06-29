@@ -17,7 +17,7 @@ interface formDataType {
   year: number;
 }
 
-const RegisterForm = () => {
+const RegisterForm:React.FC = () => {
 
   // handle all user type form data
   const [formData, setFormData] = useState<formDataType>({

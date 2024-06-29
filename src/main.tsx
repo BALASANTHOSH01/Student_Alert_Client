@@ -4,8 +4,13 @@ import App from './App.tsx'
 import './index.css'
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import {RegisterForm,LoginForm} from "./components/FormComponents/index.ts";
+import {Home} from "./pages/index.ts";
 
 const router = createBrowserRouter([
+  {
+    path:"/",
+    element:<Home/>
+  },
   {
     path:"/auth/register",
     element:<RegisterForm/>
