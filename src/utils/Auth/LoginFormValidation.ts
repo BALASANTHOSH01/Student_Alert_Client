@@ -4,6 +4,8 @@ const LoginFormValidation = (initialState: any) => {
 
     const [loginData, setLoginData] = useState(initialState);
     const [errors, setErrors] = useState({});
+     // type of user is login
+    const [userType, setUserType] = useState<string>("");
 
     // handling login data
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -14,9 +16,6 @@ const LoginFormValidation = (initialState: any) => {
         }));
     };
 
-    // type of user is login
-    const [userType, setUserType] = useState<string>("");
-
     const OverAllLoginValidation = () => {
         const validationErrors: { [key: string]: string } = {};
         Object.keys(loginData).forEach((key) => {
@@ -26,7 +25,7 @@ const LoginFormValidation = (initialState: any) => {
         });
         setErrors(validationErrors);
         return Object.keys(validationErrors).length === 0;
-    }
+    };
 
     return {
         userType,

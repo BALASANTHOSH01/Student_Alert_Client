@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useMemo, useState } from 'react'
 import SelectUser from '../SelectUser';
 import { FaLongArrowAltRight as ArrowIcon } from "react-icons/fa";
 import { LoginFormValidation } from '../../../utils/index.ts';
@@ -28,6 +28,7 @@ const LoginForm: React.FC = () => {
 
     const handleUserType = (type: string) => { // handleUserType
         setUserType(type);
+        console.log("user type :"+type);
     };
 
     const handleLoginSubmit = (e: React.FormEvent<HTMLFormElement>) => {
