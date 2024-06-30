@@ -14,7 +14,7 @@ const Hero = () => {
             </p>
           </div>
 
-          <p className=" my-[6%]">Stop using the boring paper & pen attendance records <br />and <span className="text-[--primary-purpel] font-medium">use our digital attendance manager</span></p>
+          <p className=" my-[6%]">Stop using the boring paper & pen records <br />and <span className="text-[--primary-purpel] font-medium">use our digital record manager</span></p>
 
           <div className=" px-[13px] py-[13px] text-white w-[150px] text-center bg-[--primary-purpel] font-semibold cursor-pointer hover:bg-transparent hover:text-[--primary-purpel] hover:border outline  hover:border-[--primary-purpel] hover:duration-300">
             Get Started
