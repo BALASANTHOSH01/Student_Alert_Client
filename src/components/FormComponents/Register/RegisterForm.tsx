@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import CommonFields from './CommonFields';
 import DynamicFields from './DynamicFields';
 import SelectUser from '../SelectUser';
-import { FormValidation } from '../../../utils/index.ts';
+import { RegisterFormValidation } from '../../../utils/index.ts';
 import Popup from '../Popup/Popup.tsx';
 
 interface formDataType {
@@ -34,7 +34,7 @@ const RegisterForm: React.FC = () => {
     year: 0
   };
 
-  const { handleChange, formData, errors, setErrors, overAllFormValidate, userType, setUserType } = FormValidation(initialState);
+  const { handleChange, formData, errors, setErrors, overAllFormValidate, userType, setUserType } = RegisterFormValidation(initialState);
 
 
   const handleUserType = (type: string) => {

@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const FormValidation = (initialState:any) => {
+const RegisterFormValidation = (initialState:any) => {
 
   // handle all user type form data
   const [formData, setFormData] = useState(initialState);
@@ -55,4 +55,4 @@ const FormValidation = (initialState:any) => {
 
 }
 
-export default FormValidation;
+export default RegisterFormValidation;

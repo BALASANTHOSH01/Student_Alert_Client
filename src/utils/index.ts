@@ -1,3 +1,4 @@
-import FormValidation from "./Auth/FormValidation";
+import LoginFormValidation from "./Auth/LoginFormValidation";
+import RegisterFormValidation from "./Auth/RegisterFormValidation";
 
-export {FormValidation};
+export {RegisterFormValidation,LoginFormValidation};
