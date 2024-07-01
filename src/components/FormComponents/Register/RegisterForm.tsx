@@ -3,7 +3,11 @@ import CommonFields from './CommonFields';
 import DynamicFields from './DynamicFields';
 import SelectUser from '../SelectUser';
 import { RegisterFormValidation } from '../../../utils/index.ts';
-import Popup from '../Popup/Popup.tsx';
+import { Popup } from '../index.ts';
+
+//reduxe things
+import { setUser } from '../../../features/user/userSlice.ts';
+import { useAppDispatch } from '../../../features/hook/useAppDispatch.ts';
 
 interface formDataType {
   name: string;
@@ -20,6 +24,7 @@ interface formDataType {
 
 const RegisterForm: React.FC = () => {
   const [popup, setPopup] = useState<boolean>(false);
+  const dispatch = useAppDispatch();
 
   const initialState: formDataType = {
     name: "",
@@ -60,6 +65,9 @@ const RegisterForm: React.FC = () => {
     if (overAllFormValidate()) {
       console.log("Form Submitted");
       // Add your form submission logic here (e.g., API call)
+
+      // updating data to the store
+      dispatch(setUser(formData));
     } else {
       setPopup(true);
       setTimeout(() => {

@@ -1,21 +1,26 @@
-import React, { useMemo, useState } from 'react'
+import React, { useState } from 'react';
 import SelectUser from '../SelectUser';
 import { FaLongArrowAltRight as ArrowIcon } from "react-icons/fa";
 import { LoginFormValidation } from '../../../utils/index.ts';
-import Popup from '../Popup/Popup.tsx';
+import { Popup } from '../index.ts';
+
+// redux things
+import { setUser } from '../../../features/user/userSlice.ts';
+import { useAppDispatch } from '../../../features/hook/useAppDispatch.ts';
 
 interface loginDataTypes {
     email: string;
     password: string;
 }
 
-const initialState:loginDataTypes={
+const initialState:loginDataTypes = {
     email: "",
     password: ""
 }
 
 const LoginForm: React.FC = () => {
     const [popup,setPopup]=useState<boolean>(false);
+    const dispatch = useAppDispatch();
 
     const {
         setUserType,
@@ -35,7 +40,10 @@ const LoginForm: React.FC = () => {
         e.preventDefault();
         if (OverAllLoginValidation()) {
             console.log("login submit");
-            // login API handling
+            // login API handling ....
+
+            // setUser when user sucessfully login
+            dispatch(setUser(loginData));
         } else {
             setPopup(true);
             setTimeout(() => {

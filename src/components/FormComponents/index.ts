@@ -6,4 +6,7 @@ import RegisterForm from "./Register/RegisterForm.tsx";
 import CommonFields from "./Register/CommonFields.tsx";
 import DynamicFields from "./Register/DynamicFields.tsx";
 
-export {LoginForm,RegisterForm,CommonFields,DynamicFields}
+//popup component
+import Popup from "./Popup/Popup.tsx"
+
+export {LoginForm,RegisterForm,CommonFields,DynamicFields,Popup}
