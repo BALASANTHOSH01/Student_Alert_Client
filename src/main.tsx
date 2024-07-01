@@ -34,7 +34,7 @@ const router = createBrowserRouter([
     element: <LoginForm />
   },
   {
-    path: "/dashboard/manage-student",
+    path: "/dashboard",
     element: <DashboardScreen />,
     children: [
       {

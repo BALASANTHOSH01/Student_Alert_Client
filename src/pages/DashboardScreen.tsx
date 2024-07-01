@@ -1,15 +1,18 @@
 import { Outlet } from 'react-router-dom';
-import { DashboardSideBar } from '../components/Dashboard/index.ts';
+import { DashboardSideBar,DashboardNavBar } from '../components/Dashboard/index.ts';
 
 const DashboardScreen = () => {
   return (
     <div>
       <div>
-        <div className=" flex flex-row items-center relative">
+        <div className=" flex flex-row items-center">
             {/**Dashboard SideBar */}
             <DashboardSideBar/>
-            <div className=' w-[80%] absolute right-0 top-0'>
+            <div className=' flex flex-col'>
+              <DashboardNavBar/>
+              <div className='w-[80%] absolute right-0 bg-gray-300 top-[10vh] h-full'>
                 <Outlet/>
+              </div>
             </div>
         </div>
     </div>

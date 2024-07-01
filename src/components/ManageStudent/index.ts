@@ -1,3 +1,4 @@
 import ManageStudent from "./ManageStudent";
+import CreationForm from "./CreationForm";
 
-export {ManageStudent}
+export {ManageStudent,CreationForm}
