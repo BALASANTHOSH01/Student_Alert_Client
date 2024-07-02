@@ -8,8 +8,8 @@ export interface Student {
     section: string,
     phoneNumber: string;
     parentNumber:string;
-    totalPresent:string;
-    totalAbsent:string;
+    totalPresent:number;
+    totalAbsent:number;
     institute: string;
     batch:string
 }

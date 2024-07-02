@@ -64,7 +64,8 @@ const router = createBrowserRouter([
       {
         path:`student/:rollno`,
         element:<StudentProfile/>
-      }
+      },
+      
     ]
   }
 ]);

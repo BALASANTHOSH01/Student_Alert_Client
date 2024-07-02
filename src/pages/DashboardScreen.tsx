@@ -10,7 +10,7 @@ const DashboardScreen = () => {
             <DashboardSideBar/>
             <div className=' flex flex-col'>
               <DashboardNavBar/>
-              <div className='w-[80%] absolute right-0 bg-gray-300 top-[10vh] h-full'>
+              <div className='w-[80%] absolute right-0 bg-gray-300 top-[10vh] h-screen'>
                 <Outlet/>
               </div>
             </div>
