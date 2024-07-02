@@ -16,7 +16,7 @@ const AttendanceFormCreation: React.FC<AttendanceFormCreationProps> = ({ closeFo
                     Attendance Record
                 </p>
 
-                <div className=" absolute right-[3%] top-[5%] p-1 rounded-[50%] text-[22px] hover:bg-gray-200 hover:text-red-500 cursor-pointer " onClick={closeForm}>
+                <div className=" absolute right-[1%] top-[1%] p-2  text-[22px] bg-red-500 text-white cursor-pointer " onClick={closeForm}>
                     <CrossIcon />
                 </div>
                 <div className=' px-[1%] py-[1%] w-[350px] text-center '>
