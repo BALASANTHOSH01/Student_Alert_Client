@@ -6,7 +6,7 @@ const StaffDetails = [
         phoneNumber: "xxxx",
         dept: "CSE",
         institute: "xxx",
-        year: 0,
+        year: 2,
         section: "A",
     },
     {
@@ -16,7 +16,7 @@ const StaffDetails = [
         phoneNumber: "xxxx",
         dept: "IT",
         institute: "xxx",
-        year: 0,
+        year: 3,
         section: "B",
     },
     {
@@ -26,7 +26,7 @@ const StaffDetails = [
         phoneNumber: "xxxx",
         dept: "IT",
         institute: "xxx",
-        year: 0,
+        year: 4,
         section: "C",
     },
     {
@@ -36,7 +36,7 @@ const StaffDetails = [
         phoneNumber: "xxxx",
         dept: "IT",
         institute: "xxx",
-        year: 0,
+        year: 1,
         section: "D",
     },
 ];

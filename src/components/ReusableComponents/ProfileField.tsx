@@ -14,7 +14,7 @@ const ProfileField: React.FC<ProfileFieldProps> = ({
   handleChange,
 }) => {
   return (
-    <div className={`flex flex-row items-center gap-5`}>
+    <div className={`flex flex-row items-center  gap-5`}>
       <label className="w-[140px]" htmlFor={label}>
         {label}
       </label>
@@ -30,7 +30,7 @@ const ProfileField: React.FC<ProfileFieldProps> = ({
           className=" border outline-none px-[5px] py-[3px]"
         />
       ) : (
-        <p className="">{data}</p>
+        <p className="w-[200px]">{data}</p>
       )}
     </div>
   );

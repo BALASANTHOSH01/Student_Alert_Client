@@ -3,6 +3,8 @@ import { ProfileField } from '../ReusableComponents/index.ts';
 import { Staff } from '../../features/user/userType.ts';
 import { useParams } from 'react-router-dom';
 import StaffDetails from './StaffDetails.ts';
+import { motion } from "framer-motion";
+import { FiEdit as EditIcon } from 'react-icons/fi';
 
 const StaffProfile: React.FC = () => {
   // get name & department from the parameter
@@ -34,16 +36,23 @@ const StaffProfile: React.FC = () => {
           <div>{staffData}</div>
         ) : (
           <div>
-            <ProfileField label="Name" data={(staffData as Staff)?.name || ""} isEdit={isEditStaff} handleChange={handleChange} />
-            <ProfileField label="Email" data={(staffData as Staff)?.email || ""} isEdit={isEditStaff} handleChange={handleChange} />
-            <ProfileField label="Department" data={(staffData as Staff)?.dept || ""} isEdit={isEditStaff} handleChange={handleChange} />
-            <ProfileField label="Year" data={(staffData as Staff)?.year || ""} isEdit={isEditStaff} handleChange={handleChange} />
 
-            {/* Add other ProfileField components as needed */}
-            <button onClick={() => setIsEditStaff(!isEditStaff)} className='mt-4 px-4 py-2 bg-blue-500 text-white rounded'>
-              {isEditStaff ? "Save Changes" : "Edit Details"}
-            </button>
-            
+            <motion.div
+              whileTap={{ scale: 0.6 }}
+              className='absolute right-[5%] top-[5%] flex flex-row gap-2 items-center px-[12px] py-[8px] bg-gray-100 cursor-pointer hover:bg-gray-200 duration-200'
+              onClick={() => setIsEditStaff(!isEditStaff)}
+            >
+              <p>{isEditStaff ? "Save Details" : "Edit Details"}</p>
+            <EditIcon className='text-[--primary-purpel]' />
+          </motion.div>
+
+          <div className=' w-[500px] bg-white mx-auto my-[5%]  py-[3%] text-[20px] px-[1%] flex flex-col justify-center items-center gap-5'>
+          <ProfileField label="Name" data={(staffData as Staff)?.name || ""} isEdit={isEditStaff} handleChange={handleChange} />
+              <ProfileField label="Email" data={(staffData as Staff)?.email || ""} isEdit={isEditStaff} handleChange={handleChange} />
+              <ProfileField label="Department" data={(staffData as Staff)?.dept || ""} isEdit={isEditStaff} handleChange={handleChange} />
+              <ProfileField label="Year" data={(staffData as Staff)?.year || 0} isEdit={isEditStaff} handleChange={handleChange} /> 
+          </div>
+
           </div>
         )
       }
