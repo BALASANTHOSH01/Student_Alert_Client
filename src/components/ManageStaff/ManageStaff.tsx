@@ -4,6 +4,7 @@ import { RootState } from "../../app/store.ts";
 import { useSelector } from "react-redux";
 import { useAppDispatch } from "../../features/index.ts";
 import { setFormFor } from "../../features/formCreation/formCreation.ts";
+import StaffCard from "./StaffCard.tsx";
 
 const ManageStaff = () => {
   const formFor = useSelector((state: RootState) => state.formCreation.formFor);
@@ -24,7 +25,7 @@ const ManageStaff = () => {
   };
 
   return (
-    <div>
+    <div className="px-[2%] py-[2%] ">
       
 
       {
@@ -33,6 +34,10 @@ const ManageStaff = () => {
           <StaffCreationForm closeForm={closeForm} />
         </>
       }
+
+     <div className=" mt-[5%]">
+     <StaffCard/>
+     </div>
 
     </div>
   )

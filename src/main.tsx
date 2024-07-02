@@ -19,6 +19,7 @@ import {ManageAttendance} from './components/ManageAttendance/index.ts';
 import {Notification} from './components/Notification/index.ts';
 import {UserProfile} from './components/UserProfile/index.ts';
 import {DashboardSettings} from './components/DashboardSettings/index.ts';
+import StaffProfile from './components/ManageStaff/StaffProfile.tsx';
 
 const router = createBrowserRouter([
   {
@@ -64,6 +65,10 @@ const router = createBrowserRouter([
       {
         path:`student/:rollno`,
         element:<StudentProfile/>
+      },
+      {
+        path:`staff/:dept/:name`,
+        element:<StaffProfile/>
       },
       
     ]

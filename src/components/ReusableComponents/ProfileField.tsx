@@ -3,14 +3,14 @@ import React from "react";
 interface ProfileFieldProps {
   label: string;
   data: string | number;
-  isEditStudent: boolean;
+  isEdit: boolean;
   handleChange: (e:React.ChangeEvent<HTMLInputElement>) =>void;
 }
 
 const ProfileField: React.FC<ProfileFieldProps> = ({
   label,
   data,
-  isEditStudent,
+  isEdit,
   handleChange,
 }) => {
   return (
@@ -19,7 +19,7 @@ const ProfileField: React.FC<ProfileFieldProps> = ({
         {label}
       </label>
       :
-      {isEditStudent ? (
+      {isEdit ? (
         <input
           type="text"
           value={data}
