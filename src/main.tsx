@@ -13,7 +13,7 @@ import { store } from "./app/store.ts";
 import {DashboardScreen} from './pages/index.ts';
 import StudentDashboard from './components/ManageStudent/ManageStudent.tsx';
 
-import {ManageStudent} from './components/ManageStudent/index.ts';
+import {ManageStudent, StudentProfile} from './components/ManageStudent/index.ts';
 import {ManageStaff} from './components/ManageStaff/index.ts';
 import {ManageAttendance} from './components/ManageAttendance/index.ts';
 import {Notification} from './components/Notification/index.ts';
@@ -61,6 +61,10 @@ const router = createBrowserRouter([
         path: "setting",
         element: <DashboardSettings/>
       },
+      {
+        path:`student/:rollno`,
+        element:<StudentProfile/>
+      }
     ]
   }
 ]);

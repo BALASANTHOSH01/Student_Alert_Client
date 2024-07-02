@@ -7,7 +7,11 @@ export interface Student {
     year: number;
     section: string,
     phoneNumber: string;
+    parentNumber:string;
+    totalPresent:string;
+    totalAbsent:string;
     institute: string;
+    batch:string
 }
 
 export interface Staff {

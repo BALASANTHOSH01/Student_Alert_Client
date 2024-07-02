@@ -9,7 +9,7 @@ interface CreationFormProps {
 
 const CreationForm: React.FC<CreationFormProps> = ({ closeForm }) => {
   return (
-    <div className=' px-[2%] py-[2%] w-[600px] text-center fixed top-[20%] left-[40%] bg-white mx-auto'>
+    <div className=' px-[2%] py-[2%] w-[600px] text-center fixed top-[20%] left-[40%] bg-white mx-auto z-50'>
 
       <div className=" absolute right-[1%] top-[1%] p-2  text-[22px] bg-red-500 text-white cursor-pointer " onClick={closeForm}>
         <CrossIcon />
