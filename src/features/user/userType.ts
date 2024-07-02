@@ -17,7 +17,7 @@ export interface Staff {
     phoneNumber: string;
     dept: string;
     institute: string;
-    year: string;
+    year: number;
     section: string;
 }
 

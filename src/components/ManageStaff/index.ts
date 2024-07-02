@@ -1,3 +1,4 @@
 import ManageStaff from "./ManageStaff";
+import StaffCreationForm from "./StaffCreationForm";
 
-export {ManageStaff}
+export {ManageStaff,StaffCreationForm}
