@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux'
 import AttendanceFormCreation from './AttendanceFormCreation';
 import { useAppDispatch } from '../../features/index.ts';
 import { setFormFor } from '../../features/formCreation/formCreation.ts';
+import AttendanceCard from './AttendanceCard.tsx';
 
 const ManageAttendance = () => {
   const formFor = useSelector((state: RootState) => state.formCreation.formFor);
@@ -29,6 +30,8 @@ const ManageAttendance = () => {
         {
           showAttendanceCreationForm && <AttendanceFormCreation closeForm={closeForm}/>
         }
+
+        <AttendanceCard/>
       </div>
     </div>
   )

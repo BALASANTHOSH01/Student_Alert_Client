@@ -20,6 +20,7 @@ import {Notification} from './components/Notification/index.ts';
 import {UserProfile} from './components/UserProfile/index.ts';
 import {DashboardSettings} from './components/DashboardSettings/index.ts';
 import StaffProfile from './components/ManageStaff/StaffProfile.tsx';
+import AttendanceProfile from './components/ManageAttendance/AttendanceProfile.tsx';
 
 const router = createBrowserRouter([
   {
@@ -70,6 +71,10 @@ const router = createBrowserRouter([
         path:`staff/:dept/:name`,
         element:<StaffProfile/>
       },
+      {
+        path:"/dashboard/attendance/:rollno",
+        element:<AttendanceProfile/>
+      }
       
     ]
   }
