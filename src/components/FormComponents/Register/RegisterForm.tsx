@@ -9,6 +9,9 @@ import { Popup } from '../index.ts';
 import { setUser } from '../../../features/user/userSlice.ts';
 import { useAppDispatch } from '../../../features/hook/useAppDispatch.ts';
 
+// API
+import {createInstitute} from "../../../api/auth/index.ts";
+
 interface formDataType {
   name: string;
   email: string;
@@ -42,7 +45,8 @@ const RegisterForm: React.FC = () => {
   const { handleChange, formData, errors, setErrors, overAllFormValidate, userType, setUserType } = RegisterFormValidation(initialState);
 
 
-  const handleUserType = (type: string) => {
+  const handleRegisterUserType = (type: string) => {
+    console.log("register userType :"+userType);
     setUserType(type);
   };
 
@@ -68,6 +72,8 @@ const RegisterForm: React.FC = () => {
 
       // updating data to the store
       dispatch(setUser(formData));
+      const data = createInstitute(formData);
+      console.log("Data :"+data);
     } else {
       setPopup(true);
       setTimeout(() => {
@@ -79,7 +85,7 @@ const RegisterForm: React.FC = () => {
   return (
     <div className=' font-nunito'>
       {
-        userType === "" ? <SelectUser handleUserType={handleUserType} /> : <div className=' relative'>
+        userType === "" ? <SelectUser handleUserType={handleRegisterUserType} /> : <div className=' relative'>
 
           {
             popup === true && errors && <Popup errors={errors} setPopup={setPopup} />

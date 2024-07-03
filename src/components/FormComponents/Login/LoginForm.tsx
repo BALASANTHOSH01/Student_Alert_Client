@@ -8,6 +8,9 @@ import { Popup } from '../index.ts';
 import { setUser } from '../../../features/user/userSlice.ts';
 import { useAppDispatch } from '../../../features/hook/useAppDispatch.ts';
 
+// API
+import {loginInstitute} from "../../../api/auth/user.ts";
+
 interface loginDataTypes {
     email: string;
     password: string;
