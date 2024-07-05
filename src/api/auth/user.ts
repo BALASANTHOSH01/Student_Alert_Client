@@ -1,6 +1,6 @@
 // default Imports
 import axios from "axios";
-import { API_URL } from "../../utils/axiosInstance.ts";
+import { axiosInstance } from "../../utils/axiosInstance.ts";
 
 // Types Imports
 import {CreateStudentType,CreateInstituteType,CreateStaffType,LoginDataType} from "./index.ts";
@@ -9,13 +9,15 @@ import {CreateStudentType,CreateInstituteType,CreateStaffType,LoginDataType} fro
 // Register Methods
 export const createInstitute = async (data:CreateInstituteType ) => {
     try {
-        const response = await axios.post(`${API_URL}/api/auth/institute/register`, data);
+       
+        const response = await axiosInstance.post('/api/auth/institute/register',data);
+
         if (!response) {
             return "No response is found."
         }
-        return response.data;
+        return await response;
     } catch (error) {
-        console.error("Error creating institute", error);
+        console.error("Error creating institute", error.message);
         throw error;
     }
 }

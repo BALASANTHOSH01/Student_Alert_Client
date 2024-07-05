@@ -1,28 +1,29 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import CommonFields from './CommonFields';
 import DynamicFields from './DynamicFields';
 import SelectUser from '../SelectUser';
-import { RegisterFormValidation } from '../../../utils/index.ts';
-import { Popup } from '../index.ts';
+import { RegisterFormValidation } from '../../../utils';
+import filterFormData from '../../../utils/validation/filterFormData';
+import { Popup } from '../index';
 
-//reduxe things
-import { setUser } from '../../../features/user/userSlice.ts';
-import { useAppDispatch } from '../../../features/hook/useAppDispatch.ts';
+// Redux things
+import { setUser } from '../../../features/user/userSlice';
+import { useAppDispatch } from '../../../features/hook/useAppDispatch';
 
 // API
-import {createInstitute} from "../../../api/auth/index.ts";
+import { createInstitute } from "../../../api/auth";
 
 interface formDataType {
   name: string;
   email: string;
   password: string;
-  confirmPassword: string;
   college_code: string;
   phoneNumber: string;
   institute: string;
   rollno: string;
   department: string;
   year: number;
+  pincode:string;
 }
 
 const RegisterForm: React.FC = () => {
@@ -33,21 +34,29 @@ const RegisterForm: React.FC = () => {
     name: "",
     email: "",
     password: "",
-    confirmPassword: "",
+    pincode:"",
     college_code: "",
     phoneNumber: "",
     institute: "",
     rollno: "",
     department: "",
-    year: 0
+    year: 0,
   };
 
-  const { handleChange, formData, errors, setErrors, overAllFormValidate, userType, setUserType } = RegisterFormValidation(initialState);
+  const { formData, setFormData, errors, setErrors, UserType, setUserType, overAllFormValidate } = RegisterFormValidation(initialState);
 
-
-  const handleRegisterUserType = (type: string) => {
-    console.log("register userType :"+userType);
+  // handle user's type (institute, staff, student)
+  const handleUserType = (type: string) => {
     setUserType(type);
+  };
+
+  // handling all input fields value
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData((prev: formDataType) => ({
+      ...prev,
+      [name]: name === 'year' ? parseInt(value) : value
+    }));
   };
 
   const [formNumber, setFormNumber] = useState<string>("one");
@@ -64,16 +73,15 @@ const RegisterForm: React.FC = () => {
     }, 2000);
   };
 
-  const handleOnSubmit = () => {
-
+  const handleOnSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
     if (overAllFormValidate()) {
-      console.log("Form Submitted");
-      // Add your form submission logic here (e.g., API call)
-
+      const filteredData = filterFormData(formData,UserType);
+      console.log("submitted data :"+JSON.stringify(filteredData));
       // updating data to the store
-      dispatch(setUser(formData));
-      const data = createInstitute(formData);
-      console.log("Data :"+data);
+      dispatch(setUser(filteredData));
+      const data = await createInstitute(filteredData);
+      console.log("Data :" + JSON.stringify(data));
     } else {
       setPopup(true);
       setTimeout(() => {
@@ -83,26 +91,19 @@ const RegisterForm: React.FC = () => {
   };
 
   return (
-    <div className=' font-nunito'>
-      {
-        userType === "" ? <SelectUser handleUserType={handleRegisterUserType} /> : <div className=' relative'>
-
-          {
-            popup === true && errors && <Popup errors={errors} setPopup={setPopup} />
-          }
-
-          <p className=' text-[35px] text-center font-bold my-[2%]'>Register Your Account</p>
-
-          {
-            formNumber === "one" && <CommonFields handleChange={handleChange} formData={formData} handleForm={handleForm} onHandleErrors={onHandleErrors} />
-          }
-          {
-            formNumber === "two" && <DynamicFields handleChange={handleChange} formData={formData} userType={userType} handleOnSubmit={handleOnSubmit} handleForm={handleForm} />
-          }
+    <form onSubmit={handleOnSubmit} className='font-nunito'>
+      {UserType === "" ? (
+        <SelectUser handleUserType={handleUserType} />
+      ) : (
+        <div className='relative'>
+          {popup === true && errors && <Popup errors={errors} setPopup={setPopup} />}
+          <p className='text-[35px] text-center font-bold my-[2%]'>Register Your Account</p>
+          {formNumber === "one" && <CommonFields handleChange={handleChange} formData={formData} handleForm={handleForm} onHandleErrors={onHandleErrors} />}
+          {formNumber === "two" && <DynamicFields handleChange={handleChange} formData={formData} userType={UserType} handleForm={handleForm} />}
         </div>
-      }
-    </div>
-  )
-}
+      )}
+    </form>
+  );
+};
 
-export default RegisterForm
+export default RegisterForm;

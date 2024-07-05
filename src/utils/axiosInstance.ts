@@ -1,7 +1,6 @@
-import axios from "axios";
+import axios from 'axios';
 
-
-const API_URL = "https://student-alert-server.onrender.com";
+const API_URL = import.meta.env.VITE_API_URL;
 
 const axiosInstance = axios.create({
     baseURL: API_URL,
@@ -10,4 +9,4 @@ const axiosInstance = axios.create({
     },
 });
 
-export { API_URL, axiosInstance };
+export { axiosInstance };
